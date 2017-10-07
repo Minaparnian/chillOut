@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+  <%= link_to 'Home', root_path %>
+
+  <% if @current_user.present? %>
+
+    <%= link_to "Edit profile", edit_user_path(@current_user) %>
+    <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
+
+
+  <% else %>
+
+    <%= link_to 'Sign in', login_path%>
+  <% end %>
+</nav>
+</div>
+
+
+<div class= "container">
+
+  <% if @current_user.present? %>
+    <h1> Hi <%= @current_user.name %></h1>
+    <fieldset>
+      <%=  text_field :name, :placeholder => 'Enter an Artist Name', :required => 'true', :class => "form-control" %>
+    </fieldset>
+    <fieldset>
+      <%= submit_tag "Find Artist", :class => "button", :class => "btn btn-default"  %>
+    </fieldset>
+  <% end %>
+
+</div>

@@ -1,2 +1,52 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<nav class="navbar navbar-default navbar-fixed-top">
+  
+    <div class="container-fluid">
+  <%= link_to 'Home', root_path %>
+
+  <% if @current_user.present? %>
+
+    <%= link_to "Edit profile", edit_user_path(@current_user) %>
+    <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
+
+  <% else %>
+
+    <%= link_to 'Sign in', login_path%>
+  <% end %>
+  </nav>
+
+</nav>
+
+
+<div class= "container">
+<% if @user.errors.any? %>
+<ol>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ol>
+<% end %>
+
+
+<%= form_for @user do |f| %>
+<fieldset class="form-group">
+  <%=  f.text_field :name, :placeholder => 'Name', :required => 'true', :class => "form-control"%>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.email_field :email, :placeholder => 'Email', :required => 'true', :class => "form-control"%>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.password_field :password, :placeholder => 'Password', :class => "form-control"%>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => "form-control" %>
+</fieldset>
+
+
+<fieldset class="form-group">
+ <%= f.submit "Sign Up", :class => "button", :class => "btn btn-default" %>
+</fieldset>
+<% end %>
+</div><!--container-->

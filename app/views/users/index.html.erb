@@ -1,2 +1,50 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<!-- <nav class="nav-sign">
+  <%= link_to 'Home', root_path %>
+
+  <% if @current_user.present? %>
+
+    <%= link_to "Edit profile", edit_user_path(@current_user) %>
+    <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
+</nav>
+  <% else %>
+
+    <%= link_to 'Sign in', login_path%>
+  <% end %>
+</nav>
+<div class="sign-container">
+<div class = "table">
+<% if @user.errors.any? %>
+<ol>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ol>
+<% end %> -->
+
+<div class= "form">
+<%= form_for @user do |f| %>
+<fieldset>
+  <%=  f.text_field :name, :placeholder => 'Name', :required => 'true' %>
+</fieldset>
+
+<fieldset>
+  <%= f.email_field :email, :placeholder => 'Email', :required => 'true'%>
+</fieldset>
+
+<fieldset>
+  <%= f.password_field :password, :placeholder => 'Password'%>
+</fieldset>
+
+<fieldset>
+  <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password'  %>
+</fieldset>
+
+</div>
+<div>
+  <fieldset>
+<%= f.submit "Sign Up", :class => "button" %>
+</fieldset>
+<% end %>
+</div><!--form-->
+</div><!--table-->
+</div><!--sign-container-->
