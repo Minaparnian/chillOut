@@ -1,23 +1,35 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  
-    <div class="container-fluid">
-  <%= link_to 'Home', root_path %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to login_path do %>
+            <li><%= image_tag ("Chillout2.png") %></li>
+          <% end %>
 
-  <% if @current_user.present? %>
+       </div>
+<div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
 
-    <%= link_to "Edit profile", edit_user_path(@current_user) %>
-    <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
+      <% if @current_user.present? %>
 
-  <% else %>
+      <li><%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %></li>
 
-    <%= link_to 'Sign in', login_path%>
-  <% end %>
-  </nav>
+      <% else %>
+      <li><%= link_to 'Sign in', login_path%></li>
 
+      <% end %>
+    </ul>
+  </div>
+ </div>
 </nav>
 
 
-<div class= "container">
+
 <% if @user.errors.any? %>
 <ol>
   <% @user.errors.full_messages.each do |msg| %>
@@ -25,6 +37,8 @@
   <% end %>
 </ol>
 <% end %>
+<div class= "container">
+  <div class="jumbotron">
 
 
 <%= form_for @user do |f| %>
@@ -49,4 +63,6 @@
  <%= f.submit "Sign Up", :class => "button", :class => "btn btn-default" %>
 </fieldset>
 <% end %>
+
+</div>
 </div><!--container-->
