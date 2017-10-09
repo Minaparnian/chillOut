@@ -1,24 +1,29 @@
-// .container{
-//   margin-top: 200px;
-// }
 
-body {
-  // background-image: url('abstract.jpg');
+$center:
+
+
+@mixin body-background {
   background-image: url('head-speakers.jpg');
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 110px;
+}
+
+body {
+  @include body-background;
   // background-position: center center;
   background-position: right bottom;
-  background-attachment: fixed;
+
 }
 .jumbotron {
-  margin-top: 200px;
+  margin-top:150px;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
   max-width: 700px;
   // float: right;
 }
 
-img {
+img.logo {
   height: 100px;
   width: 120px;
   padding: 0;
@@ -39,10 +44,16 @@ li {
 
 
 
+.artist-img {
+  width: 88%;
+  height: 88%;
+  margin: 0 auto;
+}
+
+
+
 @media (max-width: 500px) {
-  // .jumbotron > h1 {
-  //   color: white;
-  // }
+
 
   .container-fluid > h1 {
     text-align: center;
@@ -58,11 +69,10 @@ li {
     margin-top: 200px;
     background-color: rgba(255, 255, 255, 0.9);
     margin-top: 100px;
-
     max-width: 650px;
   }
 
-  img {
+  img.logo {
     height: 50px;
     width: 80px;
     margin-left: 20px;
@@ -86,13 +96,9 @@ li {
   }
 
   body {
-    // background-image: url('abstract.jpg');
-    background-image: url('head-speakers.jpg');
-    background-repeat: no-repeat;
+    @include body-background;
     background-position: center center;
 
-    // background-position: right bottom;
-    background-attachment: fixed;
   }
 
 

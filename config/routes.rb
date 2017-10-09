@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
 
-  get 'artist/index'
+  get '/artists' => 'artists#index'
+  get '/artists/search' => 'artists#search'
+  get 'artists/new' => 'artists#new'
 
-  get 'artist/new'
-
-  get 'artist/show'
+  get 'artists/show'
 
   root :to => 'pages#index'
   resources :users

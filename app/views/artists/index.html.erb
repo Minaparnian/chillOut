@@ -1,0 +1,16 @@
+
+<div class= "container">
+  <div class="jumbotron">
+  <% if @current_user.present? %>
+    <%= form_tag artists_search_path, :method => 'get' do %>
+      <h1> Hi <%= @current_user.name %></h1>
+      <fieldset class="form-group">
+        <%= text_field_tag :name, nil, :placeholder => "Enter an Artist Name", :required => 'true', :class => "form-control" %>
+      </fieldset>
+      <fieldset class="form-group">
+        <%= submit_tag "Find Artist", :class => "button", :class => "btn btn-default"  %>
+      </fieldset>
+    <% end %>
+  <% end %>
+  </div>
+</div>
