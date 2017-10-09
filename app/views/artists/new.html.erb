@@ -1,5 +1,10 @@
 <div class="container theme-showcase">
   <div class="jumbotron">
-  <h1>Playlists coming soon</h1>
+    <fieldset class="form-group">
+      <%= text_field_tag :name, nil, :placeholder => "Playlist title", :required => 'true', :class => "form-control" %>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= submit_tag "Create Playlist", :class => "button", :class => "btn btn-default"  %>
+    </fieldset>
 </div>
 </div>

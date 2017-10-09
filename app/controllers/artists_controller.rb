@@ -15,6 +15,7 @@ class ArtistsController < ApplicationController
     RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
     @artist = RSpotify::Artist.search(params[:name]).first
     @tracks = @artist.top_tracks(:US)
+    # @playlist = @playlist.save_tracks
 
     # RSpotify::Artist.find params[:name]
     # render json: @tracks

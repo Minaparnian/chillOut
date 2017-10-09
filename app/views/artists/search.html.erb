@@ -14,9 +14,21 @@
   <div class="text-center">
         <%= image_tag @artist.images[0]["url"], :class => "artist-img" if @artist.images.any? %>
 
-        <% @tracks.take(10).each do |track| %>
-            <%= audio_tag track.preview_url, :controls => true %>
-        <% end %>
+  <div class="track-container">
+    <% @tracks.take(10).each do |track| %>
+      <div class="playlist">
+         <%= audio_tag track.preview_url, :controls => true, :class => "this_is_draggable"%>
+         <%= link_to @artist.external_urls do %>
+            <%= image_tag ("spotify-icon-22.png"), :class => "spotify-icon" %>
+         <% end %>
+      </div>
+      <div class="add-to-playlist-button">
+         <select class="form-control input-sm"></select>
+         <button type="button" class="btn btn-primary btn-xs">Add to Playlist</button>
+      </div>
+    <% end %>
+  </div>
+
     </div>
   </div>
 </div>

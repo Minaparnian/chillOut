@@ -50,7 +50,29 @@ li {
   margin: 0 auto;
 }
 
+.track-container {
+  margin-top: 40px;
+}
 
+.this_is_draggable {
+  margin-top: 30px;
+}
+
+
+
+.playlist {
+  width: 100%;
+  background-color: black;
+  .spotify-icon {
+    width: 40px;
+    margin-bottom: 22px;
+  }
+}
+
+
+.add-to-playlist-button {
+  margin-bottom: 30px;
+}
 
 @media (max-width: 500px) {
 
