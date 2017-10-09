@@ -1,7 +1,7 @@
 User.destroy_all
 
-u1 = User.create :email => "mina.mina@ga.com"
-u2 = User.create :email => "saman.saman@ga.com"
+u1 = User.create :email => "mina.mina@ga.com", :password => 'chicken', :password_confirmation => 'chicken'
+u2 = User.create :email => "saman.saman@ga.com", :password => 'chicken', :password_confirmation => 'chicken'
 
 
 Song.destroy_all
