@@ -33,7 +33,7 @@
           <% if @current_user.present? %>
 
             <li><%= link_to "Search", artists_path %></li>
-            <li><%= link_to "Your Playlists", artists_new_path%></li>
+            <li><%= link_to "Your Playlists", new_playlist_path%></li>
             <li><%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %></li>
 
           <% else %>

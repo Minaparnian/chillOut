@@ -16,15 +16,32 @@
 
   <div class="track-container">
     <% @tracks.take(10).each do |track| %>
+
       <div class="playlist">
+        <% if !track.preview_url.nil? %>
          <%= audio_tag track.preview_url, :controls => true, :class => "this_is_draggable"%>
-         <%= link_to @artist.external_urls do %>
+         <%= link_to track.external_urls["spotify"], :target => "_blank" do %>
             <%= image_tag ("spotify-icon-22.png"), :class => "spotify-icon" %>
          <% end %>
+         <% end %>
       </div>
+
+
+
       <div class="add-to-playlist-button">
-         <select class="form-control input-sm"></select>
-         <button type="button" class="btn btn-primary btn-xs">Add to Playlist</button>
+        <%= form_tag playlists_add_path do %>
+        <%= hidden_field_tag :track_id, track.id %>
+         <select class="form-control input-sm" name="playlist_id">
+           <% @current_user.playlists.order('created_at desc').each do |playlist| %>
+
+                <option value="<%= playlist.id %>">
+                   <%= playlist.name %>
+                </option>
+
+           <% end %>
+         </select>
+         <button type="submit" class="btn btn-primary btn-xs">Add to Playlist</button>
+         <% end %>
       </div>
     <% end %>
   </div>

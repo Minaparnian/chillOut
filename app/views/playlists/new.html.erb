@@ -1,0 +1,35 @@
+<div class="container theme-showcase">
+  <div class="jumbotron">
+    <%= form_for @playlist do |f| %>
+    <fieldset class="form-group">
+      <%= f.text_field :name, :placeholder => "Playlist title", :required => 'true', :class => "form-control" %>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= f.submit "Create Playlist", :class => "button", :class => "btn btn-default" %>
+    </fieldset>
+
+    <% end %>
+
+
+
+</div>
+</div>
+
+
+<div class="container theme-showcase">
+  <div class="jumbotron">
+    <% @current_user.playlists.order('created_at desc').each do |playlist| %>
+    <div class="form-control input-lg">
+        <ul>
+          <li><%= link_to playlist.name, playlist_path( playlist.id ) %>
+            <%= link_to playlist_path( playlist ), :method => 'delete' do %>
+                <%= image_tag ("Delete.png"), :class => "delete-icon" %>
+            <% end %>
+          </li>
+        </ul>
+
+
+    </div>
+    <% end %>
+  </div>
+</div>
