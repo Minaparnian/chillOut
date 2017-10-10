@@ -32,20 +32,24 @@ class PlaylistsController < ApplicationController
 
    # save the track into the rails database
 
-   track = Track.new
-   track.song_id = params[song.external_urls]
-   track.save
+   song = Song.new
 
-   # find the playlist
+  song.name = track.name,
+  song.preview_url = track.preview_url,
+  song.external_url = track.external_urls["spotify"],
+  song.artist_name = track.artists.first.name,
+  song.images = track.album.images.last["url"]
+
+  song.save
+  #  find the playlist
 
    playlist = Playlist.find params[:playlist_id]
 
    # add the track to the playlist: playlist.tracks << track
-
-   playlist.add playlist.tracks
+   playlist.songs << song
    # redirect to the search page again ( redirect_to :back )
 
-   redirect_to :back
+   redirect_back fallback_location: root_path
 
   # track.playlist = this.playlist
 

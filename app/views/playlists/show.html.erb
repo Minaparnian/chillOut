@@ -2,4 +2,12 @@
   <div class="jumbotron">
        <%= @playlist.name %>
   </div>
+   <ul>
+      <% @playlist.songs.each do |song|%>
+
+         <li><%= song.name %></li>
+
+      <% end %>
+  </ul>
+
 </div>
