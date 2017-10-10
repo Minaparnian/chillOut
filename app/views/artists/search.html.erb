@@ -11,6 +11,9 @@
       </fieldset>
     <% end %>
   <% end %>
+
+
+
   <div class="text-center">
         <%= image_tag @artist.images[0]["url"], :class => "artist-img" if @artist.images.any? %>
 
@@ -19,6 +22,7 @@
 
       <div class="playlist">
         <% if !track.preview_url.nil? %>
+         <%= track.name %>
          <%= audio_tag track.preview_url, :controls => true, :class => "this_is_draggable"%>
          <%= link_to track.external_urls["spotify"], :target => "_blank" do %>
             <%= image_tag ("spotify-icon-22.png"), :class => "spotify-icon" %>

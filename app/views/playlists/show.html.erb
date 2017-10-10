@@ -1,13 +1,29 @@
 <div class="container theme-showcase">
   <div class="jumbotron">
+    <div class="text-center">
        <%= @playlist.name %>
-  </div>
-   <ul>
-      <% @playlist.songs.each do |song|%>
 
+<div class="track-container">
+  <% @playlist.songs.each do |song|%>
+
+      <ul>
          <li><%= song.name %></li>
+      <div class="playlist">
+         <li><%= audio_tag song.preview_url, :controls => true, :class => "this_is_draggable"%>
+           <%= link_to song.external_url, :target => "_blank" do %>
+              <%= image_tag ("spotify-icon-22.png"), :class => "spotify-icon" %>
+           <% end %>
+         </li>
+         <li><%= song.artist_name %></li>
+         <%= image_tag song.images %>
 
-      <% end %>
-  </ul>
+            <%= image_tag ("Delete.png"), :class => "delete-icon" %>
+         
 
+      </ul>
+  <% end %>
+      </div>
+     </div>
+    </div>
+  </div>
 </div>

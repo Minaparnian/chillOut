@@ -34,10 +34,10 @@ class PlaylistsController < ApplicationController
 
    song = Song.new
 
-  song.name = track.name,
-  song.preview_url = track.preview_url,
-  song.external_url = track.external_urls["spotify"],
-  song.artist_name = track.artists.first.name,
+  song.name = track.name
+  song.preview_url = track.preview_url
+  song.external_url = track.external_urls["spotify"]
+  song.artist_name = track.artists.first.name
   song.images = track.album.images.last["url"]
 
   song.save
