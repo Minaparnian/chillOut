@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # get 'playlists/new'
   post '/playlists/add' => 'playlists#add'
+  delete '/playlists/:id/remove/:track_id' => 'playlists#remove', :as => 'remove_track'
   resources :playlists
 
 

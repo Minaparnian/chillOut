@@ -8,7 +8,6 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    # raise
     playlist = Playlist.new(name_params)
     playlist.user_id = @current_user.id
     playlist.save
@@ -20,6 +19,7 @@ class PlaylistsController < ApplicationController
    playlist = Playlist.find params[:id]
    playlist.destroy
    redirect_to new_playlist_path
+
  end
 
 
@@ -34,14 +34,14 @@ class PlaylistsController < ApplicationController
 
    song = Song.new
 
-  song.name = track.name
-  song.preview_url = track.preview_url
-  song.external_url = track.external_urls["spotify"]
-  song.artist_name = track.artists.first.name
-  song.images = track.album.images.last["url"]
+    song.name = track.name
+    song.preview_url = track.preview_url
+    song.external_url = track.external_urls["spotify"]
+    song.artist_name = track.artists.first.name
+    song.images = track.album.images.last["url"]
 
-  song.save
-  #  find the playlist
+    song.save
+    #  find the playlist
 
    playlist = Playlist.find params[:playlist_id]
 
@@ -52,6 +52,15 @@ class PlaylistsController < ApplicationController
    redirect_back fallback_location: root_path
 
   # track.playlist = this.playlist
+
+ end
+
+ def remove
+
+   playlist = Playlist.find params[:id]
+   song  = Song.find params[:track_id]
+   playlist.songs.destroy(song)
+   redirect_back fallback_location: root_path
 
  end
 

@@ -22,7 +22,10 @@
 
       <div class="playlist">
         <% if !track.preview_url.nil? %>
-         <%= track.name %>
+        <div class="track-name">
+          <%= track.name %>
+        </div>
+
          <%= audio_tag track.preview_url, :controls => true, :class => "this_is_draggable"%>
          <%= link_to track.external_urls["spotify"], :target => "_blank" do %>
             <%= image_tag ("spotify-icon-22.png"), :class => "spotify-icon" %>

@@ -1,7 +1,3 @@
-
-
-
-
 @mixin body-background {
   background-image: url('head-speakers.jpg');
   background-repeat: no-repeat;
@@ -29,6 +25,11 @@ img.logo {
   padding: 0;
   margin: 0;
 
+}
+
+
+ul {
+  padding-left: 0;
 }
 
 li {
@@ -113,6 +114,11 @@ li {
 
   img {
     height: 50px;
+    width: 50px;
+  }
+
+  img.logo {
+    height: 50px;
     width: 80px;
     margin-left: 20px;
   }
@@ -123,6 +129,15 @@ li {
 
   }
 
+}
 
+
+@media (max-width: 987px){
+
+  body {
+    @include body-background;
+    background-position: center center;
+
+  }
 
 }
