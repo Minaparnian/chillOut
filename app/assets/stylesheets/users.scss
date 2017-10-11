@@ -1,9 +1,12 @@
+$green: #88c057;
+
 @mixin body-background {
   background-image: url('head-speakers.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin-top: 110px;
 }
+
 
 body {
   @include body-background;
@@ -75,6 +78,11 @@ li {
   margin-bottom: 30px;
 }
 
+
+.green {
+  color: $green;
+}
+
 @media (max-width: 500px) {
 
 
@@ -86,6 +94,7 @@ li {
 
     font-size: 13px;
     text-align: center;
+    
   }
 
   .jumbotron {

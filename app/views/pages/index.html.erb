@@ -1,14 +1,18 @@
-
-
 <div class="container">
   <div class="jumbotron">
     <div class="container-fluid">
       <% if @current_user.present? %>
         <h1> Hi There, <%= @current_user.name %></h1>
-        <h3>Create a playlist with your favorite songs</h3>
-        <h3>Search for an artist to get their top 10 tracks</h3>
-        <h3>Adjust the sliders to get the perfect song for you!</h3>
-        <h3>Preview songs with the built in web player!</h3>
+        <h3> Search and play</h3>
+        <h3>Stream 30 sec ad-free music and for full music you can simply listen from Spotify</h3>
+        <h3>Create All your favourite albums</h3>
+        <h3> Easy to use</h3>
+
+        <% else %>
+        <h3><span class="green"><strong>ChillOut</strong></span> is a digital music service that gives you access to millions of songs</h3>
+        <br/ >
+        
+        <h4><%= link_to 'Sign Up', new_user_path, :class => 'green'%> for free today</h4>
       <% end %>
     </div>
   </div>
