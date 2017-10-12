@@ -29,7 +29,7 @@ console.log("loaded");
   function animateStuff() {
     analyserNode.getByteFrequencyData(frequencyData);
 
-    for (let i=0; i<totalEls; i++) {
+    for (var i=0; i<totalEls; i++) {
 
       var freqVol = frequencyData[i*4]/8;
       allRepeatedEls[i].style.height = freqVol+'vh';
