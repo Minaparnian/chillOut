@@ -31,7 +31,7 @@ console.log("loaded");
 
     for (let i=0; i<totalEls; i++) {
 
-      var freqVol = frequencyData[i*4]/2;
+      var freqVol = frequencyData[i*4]/8;
       allRepeatedEls[i].style.height = freqVol+'vh';
     }
     if (window.pause) { return };
@@ -54,8 +54,11 @@ console.log("loaded");
 
   // hide and show animation
   $(window).click(function() {
-    $('#screen').hide()
+    console.log("clicked");
     $('#screen').toggle();
+
+
+
 });
 
 
