@@ -41,8 +41,9 @@ ul {
 
 li {
   list-style: none;
-
 }
+
+
 
 .fa {
   margin-right: 16px;
@@ -143,7 +144,7 @@ li {
 
   body {
     @include body-background;
-    background-position: center center;
+    background-position: center bottom;
 
   }
 
@@ -154,8 +155,36 @@ li {
 
   body {
     @include body-background;
-    background-position: center center;
+    background-position: center bottom;
 
   }
 
 }
+
+
+
+///////////Audio visualize////////////////////
+
+
+#screen {
+      // position: relative; padding:1vh;
+      width: 100vw; height: 50vh;
+      box-sizing: border-box;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      background-color: black;
+
+    }
+
+
+#screen section {
+      height:20px; margin: 1vh;
+      width: 20px;
+      display: inline-block;
+      background-color: $green;
+      vertical-align: top;
+
+    }

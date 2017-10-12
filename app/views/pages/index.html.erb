@@ -3,21 +3,22 @@
     <div class="container-fluid">
       <% if @current_user.present? %>
         <h1> Hi There, <%= @current_user.name %></h1>
+        <br/>
         <ul>
-            <li><h3><i class="fa fa-play" aria-hidden="true"></i></i> Search and play </h3></li>
+            <li><h4><i class="fa fa-play" aria-hidden="true"></i></i> Search and play </h4></li>
             <hr/>
-            <li><h3><i class="fa fa-play" aria-hidden="true"></i></i> Stream 30 sec ad-free music and for full music you can simply listen from Spotify</h3></li>
+            <li><h4><i class="fa fa-play" aria-hidden="true"></i></i> Stream 40 sec ad-free music and for full music you can simply listen from Spotify</h4></li>
             <hr/>
-            <li><h3><i class="fa fa-play" aria-hidden="true"></i></i> Create All your favourite albums</h3></li>
+            <li><h4><i class="fa fa-play" aria-hidden="true"></i></i> Create All your favourite albums</h4></li>
             <hr/>
-            <li><h3> <i class="fa fa-play" aria-hidden="true"></i></i> Easy to use</h3></li>
+            <li><h4> <i class="fa fa-play" aria-hidden="true"></i></i> Easy to use</h4></li>
 
         </ul>
       <% else %>
-        <h3><span class="green"><strong>ChillOut</strong></span> is a digital music service that gives you access to millions of songs</h3>
+        <h4><span class="green"><strong>ChillOut</strong></span> is a digital music service that gives you access to millions of songs</h4>
         <br/ >
 
-        <h4><%= link_to 'Sign Up', new_user_path, :class => 'green'%> for free today</h4>
+        <h5><%= link_to 'Sign Up', new_user_path, :class => 'green'%> for free today</h5>
       <% end %>
     </div>
   </div>
