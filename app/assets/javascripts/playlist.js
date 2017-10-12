@@ -53,13 +53,13 @@ console.log("loaded");
 
 
   // hide and show animation
-  $(window).click(function() {
-    console.log("clicked");
-    $('#screen').toggle();
-
-
-
-});
+//   $('.visualize').click(function() {
+//     console.log("clicked");
+//     $('#screen').toggle();
+//
+//
+//
+// });
 
 
 

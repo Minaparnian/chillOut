@@ -35,6 +35,8 @@
           <% if @current_user.present? %>
 
             <li><%= link_to "Search", artists_path %></li>
+            <li><a href="" class="visualiser">visualiser</a></li>
+
             <li><%= link_to "Your Playlists", new_playlist_path%></li>
             <li><%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %></li>
 
@@ -54,4 +56,14 @@
 
     <%= yield %>
   </body>
+
+<script>
+$('#screen').toggle();
+  $('.visualiser').on('click', function( e ){
+    e.preventDefault();
+    // console.log("////")
+        $('#screen').toggle();
+  })
+</script>
+
 </html>
